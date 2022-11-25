@@ -1,0 +1,125 @@
+/* imageType */
+#imageType > p {
+    font-size: 22px;
+    padding: 0 20px;
+    word-break: keep-all;
+    line-height: 1.6;
+}
+
+.image__inner {
+    display: flex;
+    justify-content: space-between;     /* 간격 떨어뜨리기 */
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.card {
+    width: 24%;
+    margin-bottom: 15px;
+    transition: transform 0.3s;
+}
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card .image {
+    padding: 40px 0;
+    text-align: center;
+    color: #fff;
+    border-radius: 8px;
+}
+
+
+.image.img1, 
+.image.img2, 
+.image.img3, 
+.image.img4, 
+.image.img5, 
+.image.img6, 
+.image.img7, 
+.image.img8, 
+.image.img9, 
+.image.img10, 
+.image.img11, 
+.image.img12, 
+.image.img13, 
+.image.img14, 
+.image.img15, 
+.image.img16, 
+.image.img17, 
+.image.img18, 
+.image.img19, 
+.image.img20 {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+} 
+
+.image.img1 {
+    background-image: url(../img/cityImg/Beijing.png);
+}
+.image.img2 {
+    background-image: url(../img/cityImg/Berlin.png);
+}
+.image.img3 {
+    background-image: url(../img/cityImg/Cairo.png);
+}
+.image.img4 {
+    background-image: url(../img/cityImg/Cape\ Town.png);
+}
+.image.img5 {
+    background-image: url(../img/cityImg/Hong\ Kong.png);
+}
+.image.img6 {
+    background-image: url(../img/cityImg/Istanbul.png);
+}
+.image.img7 {
+    background-image: url(../img/cityImg/London.png);
+}
+.image.img8 {
+    background-image: url(../img/cityImg/Los\ Angeles.png);
+}
+.image.img9 {
+    background-image: url(../img/cityImg/Madrid.png);
+}
+.image.img10 {
+    background-image: url(../img/cityImg/Mexico.png);
+}
+.image.img11 {
+    background-image: url(../img/cityImg/Moscow.png);
+}
+.image.img12 {
+    background-image: url(../img/cityImg/Mumbai.png);
+}
+.image.img13 {
+    background-image: url(../img/cityImg/New\ York.png);
+}
+.image.img14 {
+    background-image: url(../img/cityImg/Paris.png);
+}
+.image.img15 {
+    background-image: url(../img/cityImg/Sao\ Paulo.png);
+}
+.image.img16 {
+    background-image: url(../img/cityImg/Seoul.png);
+}
+.image.img17 {
+    background-image: url(../img/cityImg/Singapore.png);
+}
+.image.img18 {
+    background-image: url(../img/cityImg/Sydney.png);
+}
+.image.img19 {
+    background-image: url(../img/cityImg/Tokyo.png);
+}
+.image.img20 {
+    background-image: url(../img/cityImg/Toronto.png);
+}
+
+
+/* 반응형 */
+@media (max-width: 700px) {
+    .card {
+        width: 96%;
+    }
+}
