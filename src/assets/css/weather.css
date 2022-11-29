@@ -118,6 +118,21 @@ hr {
     border-bottom: 1px solid #999;
     margin-bottom: 100px;
 }
+
+input {
+    width: 100%;
+    background: transparent;
+    border: 0 none;
+    outline: 0 none;
+    padding: 12px 0 12px 5px;
+    position: relative;
+    z-index: 3;
+    color: #fff;
+    font-size: 18px;
+    border-bottom: 1px solid #999;
+    margin-bottom: 60px;
+}
+
 .selectBox {
     position: relative;
     width: 100%;

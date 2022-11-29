@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
+import moment from 'moment';
 import axios from 'axios';
-import clearIcon from '../assets/img/weather/icon/Sunny-Bold.svg'
-import cloudyIcon from '../assets/img/weather/icon/PartlyCloudy-Bold.svg'
-import rainyIcon from '../assets/img/weather/icon/Rainy-Bold.svg'
-import snowyIcon from '../assets/img/weather/icon/Snowy-Bold.svg'
+import clearIcon from '../assets/img/weather/icon/Clear.svg'
+import cloudyIcon from '../assets/img/weather/icon/Clouds.svg'
+import rainyIcon from '../assets/img/weather/icon/Rain.svg'
+import snowyIcon from '../assets/img/weather/icon/Snow.svg'
 import selectIcon from '../assets/img/weather/select.svg'
 
 const WeatherRight = () => {
@@ -11,8 +12,8 @@ const WeatherRight = () => {
     const [location, setLocation] = useState('');
     const [result, setResult] = useState({});
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${API_KEY}&lang=kr&units=metric`;
-    // const url2 = `api.openweathermap.org/data/2.5/forecast?q=${location}&appid=${API_KEY}&lang=kr&units=metric`;
-
+    // const url2 = `https://api.openweathermap.org/data/2.5/forecast?q=${location}&appid=${API_KEY}&lang=kr&units=metric`;
+    
     const searchWeather = async (e) => {
         if(e.key === 'Enter'){
             try {
@@ -20,8 +21,14 @@ const WeatherRight = () => {
                     method: 'get',
                     url: url,
                 })
+                // const data2 = await axios({
+                //     method: 'get',
+                //     url: url2,
+                // })
                 console.log(data);
                 setResult(data);
+                // console.log(data2);
+                // setResult(data2);
             }
             catch (err) {
                 alert(err);
@@ -41,11 +48,11 @@ const WeatherRight = () => {
                         </div>
                         <div className="weather__region">
                             {result.data.name}
-                            <p className="weather_time">{result.data.timezone} / {result.data.dt}</p>
+                            <p className="weather_time">{moment().format('YYYY-MM-DD')}</p>
                         </div>
                         <div className="weather__desc">
-                            <img className="weather_icon" src={clearIcon} alt="날씨 아이콘" />
-                            <p className="weather_icon_desc">{result.data.weather.main}</p>
+                            <img className="weather_icon" src={`http://openweathermap.org/img/wn/${result.data.weather[0].icon}@4x.png`} alt={result.data.weather[0].description} />
+                            <p className="weather_icon_desc">{result.data.weather[0].description}</p>
                         </div>
                     </>
                 )}
@@ -59,29 +66,15 @@ const WeatherRight = () => {
         </div>
 
         <div className="weather__right">
-            <input
-                placeholder='도시명을 입력하세요.'
-                value={location}
-                onChange={(e) => setLocation(e.target.value)}
-                type='text'
-                onKeyDown={searchWeather}
-            />
-            <form action="" name="regionSearch">
-                <fieldset>
-                    <legend>지역 선택 영역</legend>
-                    <div className="selectBox">
-                        <select name="searchRegion" id="searchRegion" className="select">
-                            <option value="" disabled="" selected="">다른 지역 선택</option>
-                            <option value="Seoul">Seoul</option>
-                            <option value="Paris">Paris</option>
-                            <option value="Tokyo">Tokyo</option>
-                        </select>
-                        <span className="icoArrow">
-                            <img src={selectIcon} alt="select 화살표" />
-                        </span>
-                    </div>
-                </fieldset>
-            </form>
+            <div className="selectBox">
+                <input
+                    placeholder='도시명을 검색해보세요. (ex: Seoul, London)'
+                    value={location}
+                    onChange={(e) => setLocation(e.target.value)}
+                    type='text'
+                    onKeyDown={searchWeather}
+                />
+            </div>
 
             <h3>날씨 상세정보</h3>
             <div className="weather__info">
@@ -115,13 +108,87 @@ const WeatherRight = () => {
             <hr />
 
             <h3 className="tenday">10일 날씨 예보</h3>
-            <div className="weather__news">
+            {/* {Object.keys(result).length !== 0 && (
+                <div className="weather__news">
                 <div className="weather__day day1">
-                    <div className="weather_day_date">11-24 (목)</div>
+                    <div className="weather_day_date">11-24 (금)</div>
                     <div className="weather_day_icon">
                         <img src={clearIcon} alt="눈" />
                     </div>
-                    <div className="weather_day_temp">-2˚ / 6˚</div>
+                    <div className="weather_day_temp">{result.data2.list[0].main.temp_min}˚ / {result.data2.list[0].main.temp_max}˚</div>
+                </div>
+                <div className="weather__day day1">
+                    <div className="weather_day_date">11-25 (금)</div>
+                    <div className="weather_day_icon">
+                        <img src={clearIcon} alt="눈" />
+                    </div>
+                    <div className="weather_day_temp">6˚ / 16˚</div>
+                </div>
+                <div className="weather__day day1">
+                    <div className="weather_day_date">11-26 (토)</div>
+                    <div className="weather_day_icon">
+                        <img src={clearIcon} alt="눈" />
+                    </div>
+                    <div className="weather_day_temp">5˚ / 22˚</div>
+                </div>
+                <div className="weather__day day1">
+                    <div className="weather_day_date">11-27 (일)</div>
+                    <div className="weather_day_icon">
+                        <img src={cloudyIcon} alt="눈" />
+                    </div>
+                    <div className="weather_day_temp">10˚ / 19˚</div>
+                </div>
+                <div className="weather__day day1">
+                    <div className="weather_day_date">11-28 (월)</div>
+                    <div className="weather_day_icon">
+                        <img src={clearIcon} alt="눈" />
+                    </div>
+                    <div className="weather_day_temp">6˚ / 7˚</div>
+                </div>
+                <div className="weather__day day1">
+                    <div className="weather_day_date">11-29 (화)</div>
+                    <div className="weather_day_icon">
+                        <img src={cloudyIcon} alt="눈" />
+                    </div>
+                    <div className="weather_day_temp">2˚ / 5˚</div>
+                </div>
+                <div className="weather__day day1">
+                    <div className="weather_day_date">11-30 (수)</div>
+                    <div className="weather_day_icon">
+                        <img src={cloudyIcon} alt="눈" />
+                    </div>
+                    <div className="weather_day_temp">3˚ / 6˚</div>
+                </div>
+                <div className="weather__day day1">
+                    <div className="weather_day_date">12-01 (목)</div>
+                    <div className="weather_day_icon">
+                        <img src={snowyIcon} alt="눈" />
+                    </div>
+                    <div className="weather_day_temp">-1˚ / 11˚</div>
+                </div>
+                <div className="weather__day day1">
+                    <div className="weather_day_date">12-02 (금)</div>
+                    <div className="weather_day_icon">
+                        <img src={snowyIcon} alt="눈" />
+                    </div>
+                    <div className="weather_day_temp">-5˚ / 6˚</div>
+                </div>
+                <div className="weather__day day1">
+                    <div className="weather_day_date">12-03 (토)</div>
+                    <div className="weather_day_icon">
+                        <img src={snowyIcon} alt="눈" />
+                    </div>
+                    <div className="weather_day_temp">24˚ / 37˚</div>
+                </div>
+                </div>
+            )} */}
+            <div className="weather__news">
+                <div className="weather__day day1">
+                    <div className="weather_day_date">11-24 (금)</div>
+                    <div className="weather_day_icon">
+                        <img src={clearIcon} alt="눈" />
+                    </div>
+                    <div className="weather_day_temp">0˚ / 0</div>
                 </div>
                 <div className="weather__day day1">
                     <div className="weather_day_date">11-25 (금)</div>
