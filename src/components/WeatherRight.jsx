@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios';
 import clearIcon from '../assets/img/weather/icon/Sunny-Bold.svg'
 import cloudyIcon from '../assets/img/weather/icon/PartlyCloudy-Bold.svg'

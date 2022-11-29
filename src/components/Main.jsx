@@ -1,9 +1,3 @@
-import React, { useEffect, useState } from 'react';
-
-import { fetchAPI } from "../utils/fetchAPI";
-import { useParams, Link } from 'react-router-dom'
-
-import WeatherLeft from "./WeatherLeft";
 import WeatherRight from "./WeatherRight";
 
 const Main = () => {
