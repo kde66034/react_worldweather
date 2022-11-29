@@ -87,6 +87,24 @@ hr {
     text-shadow: 3px 6px 10px #111;
     text-align: center;
 }
+.weather__pleaseSearch {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column
+}
+.todaysweather {
+    font-size: 80px;
+    margin-right: 10px;
+    text-shadow: 3px 6px 10px #111;
+}
+.todaysweather__desc {
+    font-size: 20px;
+    font-weight: 300;
+    color: #fff;
+    text-shadow: 3px 6px 10px #111;
+    margin-top: 10px;
+    padding-left: 5px;
+}
 
 /* weatger__right */
 .weather__right {
