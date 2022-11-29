@@ -11,7 +11,7 @@ const WeatherRight = () => {
     const [location, setLocation] = useState('');
     const [result, setResult] = useState({});
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${API_KEY}&lang=kr&units=metric`;
-    const url2 = `api.openweathermap.org/data/2.5/forecast?q=${location}&appid=${API_KEY}&lang=kr&units=metric`;
+    // const url2 = `api.openweathermap.org/data/2.5/forecast?q=${location}&appid=${API_KEY}&lang=kr&units=metric`;
 
     const searchWeather = async (e) => {
         if(e.key === 'Enter'){
