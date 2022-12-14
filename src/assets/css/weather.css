@@ -33,20 +33,59 @@ hr {
     background-position: center center;
     background-repeat: no-repeat;
 }
-.weather__wrap.Clear {
-    background-image: url(../img/weather/bg/clear.jpg);
+.weather__wrap.b01d {
+    background-image: url(../img/weather/bg/b01d.jpg);
 }
-.weather__wrap.Clouds {
-    background-image: url(../img/weather/bg/clouds.jpg);
+.weather__wrap.b01n {
+    background-image: url(../img/weather/bg/b01n.jpg);
 }
-.weather__wrap.Thunderstorm {
-    background-image: url(../img/weather/bg/thunderstorm.jpg);
+.weather__wrap.b02d {
+    background-image: url(../img/weather/bg/b02d.jpg);
 }
-.weather__wrap.Rain {
-    background-image: url(../img/weather/bg/rain.jpg);
+.weather__wrap.b02n {
+    background-image: url(../img/weather/bg/b02n.jpg);
 }
-.weather__wrap.Snow {
-    background-image: url(../img/weather/bg/snow.jpg);
+.weather__wrap.b03d {
+    background-image: url(../img/weather/bg/b03d.jpg);
+}
+.weather__wrap.b03n {
+    background-image: url(../img/weather/bg/b03n.jpg);
+}
+.weather__wrap.b04d {
+    background-image: url(../img/weather/bg/b04d.jpg);
+}
+.weather__wrap.b04n {
+    background-image: url(../img/weather/bg/b04n.jpg);
+}
+.weather__wrap.b09d {
+    background-image: url(../img/weather/bg/b09d.jpg);
+}
+.weather__wrap.b09n {
+    background-image: url(../img/weather/bg/b09n.jpg);
+}
+.weather__wrap.b10d {
+    background-image: url(../img/weather/bg/b10d.jpg);
+}
+.weather__wrap.b10n {
+    background-image: url(../img/weather/bg/b10n.jpg);
+}
+.weather__wrap.b11d {
+    background-image: url(../img/weather/bg/b11d.jpg);
+}
+.weather__wrap.b11n {
+    background-image: url(../img/weather/bg/b11n.jpg);
+}
+.weather__wrap.b13d {
+    background-image: url(../img/weather/bg/b13d.jpg);
+}
+.weather__wrap.b13n {
+    background-image: url(../img/weather/bg/b13n.jpg);
+}
+.weather__wrap.b50d {
+    background-image: url(../img/weather/bg/b50d.jpg);
+}
+.weather__wrap.b50n {
+    background-image: url(../img/weather/bg/b50n.jpg);
 }
 
 .weather__inner {
@@ -292,4 +331,17 @@ textarea:-ms-input-placeholder {color:#cdcdcd;}
     font-size: 18px;
     width: 25%;
     text-align: right;
+}
+
+/* 도시 버튼 */
+.cont__weatherBtn {}
+.weather__btn li {
+    border: 1px solid #fff;
+    border-radius: 50px;
+    font-family: var(--font-sub2);
+    padding: 5px 10px;
+    margin: 10px 5px 20px 5px;
+    color: var(--white);
+    cursor: pointer;
+    transition: all 300ms;
 }

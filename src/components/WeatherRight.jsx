@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import moment from 'moment';
 import axios from 'axios';
+import WeatherBtn from './WeatherBtn'
 import clearIcon from '../assets/img/weather/icon/Clear.svg'
 import cloudyIcon from '../assets/img/weather/icon/Clouds.svg'
 import rainyIcon from '../assets/img/weather/icon/Rain.svg'
@@ -22,25 +23,22 @@ const WeatherRight = () => {
                     method: 'get',
                     url: url,
                 })
-                // const data2 = await axios({
-                //     method: 'get',
-                //     url: url2,
-                // })
                 console.log(data);
                 setResult(data);
-                // console.log(data2);
-                // setResult(data2);
             }
             catch (err) {
                 alert(err);
             }
         }
     };
+    const onClick = () => {
+        searchWeather();
+    };
 
   return (
     <>  
         <div className={`weather__wrap ${Object.keys(result).length !== 0 && (
-            result.data.weather[0].main
+            `b${result.data.weather[0].icon}`
         )}`}>
             <div className="weather__inner container">
                 <div className="weather__left">
@@ -56,7 +54,7 @@ const WeatherRight = () => {
                                     <p className="weather_time">{moment().format('YYYY-MM-DD')}</p>
                                 </div>
                                 <div className="weather__desc">
-                                    <img className="weather_icon" src={`http://openweathermap.org/img/wn/${result.data.weather[0].icon}@4x.png`} alt={result.data.weather[0].description} />
+                                    <img className="weather_icon" src={`img/${result.data.weather[0].icon}.svg`} alt={result.data.weather[0].description} />
                                     <p className="weather_icon_desc">{result.data.weather[0].description}</p>
                                 </div>
                             </>
@@ -79,10 +77,12 @@ const WeatherRight = () => {
                             type='text'
                             onKeyDown={searchWeather}
                         />
-                        <button type='submit' className='weatherSearch__btn'>
+                        <button type='submit' className='weatherSearch__btn' onClick={onClick}>
                             <AiOutlineSearch />
                         </button>
                     </div>
+
+                    <WeatherBtn onSearch={searchWeather} />
 
                     <h3>날씨 상세정보</h3>
                     <div className="weather__info">
